@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-CHROOT=${HOME}/.devenv/
+CHROOT=${HOME}/.devenv
 
 if [ -z "$(type -t namemunge)" ] ; then
 
@@ -75,7 +75,7 @@ devenv() {
     fi
 
     echo "devenv '${DEVENV}' to be turned off"
-    _hackoff_impl ${DEVENV}
+    hackoff_impl ${DEVENV}
     eval "unset DEVENV"
     eval "unset DEVENV_ROOT"
     return
