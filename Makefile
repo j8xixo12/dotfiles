@@ -1,15 +1,19 @@
 SHELL := bash
 
-all: bashrc vimrc gitconfig
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+all: bashrc vimrc gitconfig all-vim 
 
 include vim/makefile
 
 bashrc:
-	ln -sf $(PWD)/.aliases $(HOME)/.aliases
-	ln -sf $(PWD)/.bashrc $(HOME)/.bashrc
-	ln -sf $(PWD)/.bash_profile $(HOME)/.bash_profile
-	ln -sf $(PWD)/.bash_prompt $(HOME)/.bash_prompt
+	ln -sf $(ROOT_DIR)/.aliases $(HOME)/.aliases
+	ln -sf $(ROOT_DIR)/.bashrc $(HOME)/.bashrc
+	ln -sf $(ROOT_DIR)/.bash_profile $(HOME)/.bash_profile
+	ln -sf $(ROOT_DIR)/.bash_prompt $(HOME)/.bash_prompt
+	sudo ln -sf $(ROOT_DIR)/bash_files/bashutils.sh /etc/ 
+	sudo chmod +x /etc/bashutils.sh
 
 gitconfig:
-	ln -sf $(PWD)/.gitignore_global $(HOME)/.gitignore_global
-	ln -sf $(PWD)/.gitconfig $(HOME)/.gitconfig
+	ln -sf $(ROOT_DIR)/.gitignore_global $(HOME)/.gitignore_global
+	ln -sf $(ROOT_DIR)/.gitconfig $(HOME)/.gitconfig

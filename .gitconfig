@@ -1,17 +1,10 @@
-[user]
-	email = as2266317@gmail.com
-	name = j8xixo12
+[alias]
+    diff=difftool
+[branch]
+  autosetuprebase = always
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
-[diff]
-    tool = vimdiff
-[push]
-  default = simple
-[pull]
-  rebase = true
-[branch]
-  autosetuprebase = always
 [color]
   ui = always
 [color "diff"]
@@ -33,4 +26,16 @@
 [color "status"]
   added = green
   changed = red
-  untracked = cyan
+    untracked = cyan
+[diff]
+	tool = vimdiff
+[difftool]
+      prompt = false
+[push]
+  default = simple
+[pull]
+  rebase = true
+[user]
+	email = as2266317@gmail.com
+	name = j8xixo12
+

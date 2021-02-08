@@ -1,5 +1,3 @@
-ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-
 PREFIX ?= /usr/local
 
 OS := $(shell uname -s)
@@ -8,7 +6,7 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= v8.2.1738
 
-all: bear clangd vim Vim-Plug color vimrc
+all-vim: bear clangd vim Vim-Plug color vimrc
 
 Vim-Plug: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
