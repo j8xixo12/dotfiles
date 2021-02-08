@@ -14,28 +14,27 @@ export PATH=$HOME/.local/bin:$PATH
 . ~/.aliases
 . ~/.bash_prompt
 
+PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/site-packages
 
-# Python user bin
-[[ -d "$(python -m site --user-base)/bin" ]] && export PATH="$(python -m site --user-base)/bin:${PATH}"
+# Set PATH priority to Homebrew installation folder
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/Applications/ARM/bin:$PATH
+export PATH=/usr/local/Cellar/lrzsz/0.12.20_1/bin:$PATH
+export PATH=/opt/riscv/bin:$PATH
 
-
-# Simple Python Version Management
-export PYENV_ROOT="${HOME}/.pyenv"
-[[ -s "${HOME}/.pyenv/bin" ]] && export PATH="${HOME}/.pyenv/bin:${PATH}"
-[[ -s "${HOME}/.pyenv/completions" ]] && . "${HOME}/.pyenv/completions/pyenv.bash"
-
-
-# Go Version Manager
-[[ -s "${HOME}/.gvm/scripts/gvm" ]] && . "${HOME}/.gvm/scripts/gvm"
-[[ -s "${HOME}/.gvm/scripts/completion" ]] && . "${HOME}/.gvm/scripts/completion"
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+alias vim='/usr/local/bin/vim'
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/Users/laijunxu/.local/bin:$PATH"
+alias vim=/usr/local/bin/vim
+alias gcc=gcc-7
 
 # Terraform bash completion
 if [ -x $(command -v terraform) ]; then
   complete -o nospace -C terraform tf
 fi
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/chester/.sdkman"
-[[ -s "/Users/chester/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/chester/.sdkman/bin/sdkman-init.sh"

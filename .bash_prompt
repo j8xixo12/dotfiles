@@ -5,7 +5,7 @@ bold="\e[1m"
 reset="\e[0m"
 black="\e[030m"
 red="\e[031m"
-green="\e[032m"
+green="\e[38;5;82m"
 yellow="\e[033m"
 blue="\e[034m"
 magenta="\e[035m"
@@ -27,6 +27,7 @@ prompt_git() {
     # Otherwise, just give up.
     b="$( \
       git symbolic-ref --quiet --short HEAD 2> /dev/null \
+        || git describe --tags --abbrev=0 2> /dev/null \
         || git rev-parse --short HEAD 2> /dev/null \
         || echo '(unknown)')"
 
@@ -36,8 +37,13 @@ prompt_git() {
     then
       s='*'
     fi
+    
+    if [ "$(git describe --exact-match --abbrev=0 2> /dev/null)" ]; then
+      echo -e " [${magenta}\uf02c ${b}${yellow}${s}${reset}]" 
+    else
+      echo -e " [${magenta}\uf418 ${b}${yellow}${s}${reset}]" 
+    fi
 
-    echo -e " [${magenta}\uf418 ${b}${yellow}${s}${reset}]"
   else
     return
   fi
@@ -46,6 +52,6 @@ prompt_git() {
 
 # Set the terminal title to the current working directory.
 PS1=""
-PS1+="┌── ${bold}${blue}\W${reset}\$(prompt_git)\n"
+PS1+="┌── ${bold}${green}\w${reset}\$(prompt_git)\n"
 PS1+="└─❯ "
 export PS1

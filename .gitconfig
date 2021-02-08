@@ -1,9 +1,11 @@
 [user]
-	email = chester7864@gmail.com
-	name = chestercheng
+	email = as2266317@gmail.com
+	name = j8xixo12
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
+[diff]
+    tool = vimdiff
 [push]
   default = simple
 [pull]
@@ -29,6 +31,6 @@
   local = yellow
   remote = green
 [color "status"]
-  added = yellow
-  changed = green
+  added = green
+  changed = red
   untracked = cyan
