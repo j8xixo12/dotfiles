@@ -49,8 +49,11 @@ prompt_git() {
   fi
 }
 
+arrow() {
+  echo -e "\uf307"
+}
 # Set the terminal title to the current working directory.
 PS1=""
 PS1+="┌── ${bold}${green}\w${reset}\$(prompt_git)\n"
-PS1+="└─❯ "
+PS1+="└─\$(arrow) "
 export PS1
