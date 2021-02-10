@@ -17,7 +17,6 @@ export PATH=$HOME/.local/bin:$PATH
 # Set PATH priority to Homebrew installation folder
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/Applications/ARM/bin:$PATH
-export PATH=/usr/local/Cellar/lrzsz/0.12.20_1/bin:$PATH
 export PATH=/opt/riscv/bin:$PATH
 
 alias vim='/usr/local/bin/vim'
