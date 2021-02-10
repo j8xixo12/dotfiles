@@ -19,11 +19,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/Applications/ARM/bin:$PATH
 export PATH=/opt/riscv/bin:$PATH
 
-alias vim='/usr/local/bin/vim'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/Users/laijunxu/.local/bin:$PATH"
-alias vim=/usr/local/bin/vim
-alias gcc=gcc-7
 
 # Terraform bash completion
 if [ -x $(command -v terraform) ]; then

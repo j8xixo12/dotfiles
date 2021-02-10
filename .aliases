@@ -3,6 +3,8 @@
 alias diff="diff -ubBw"
 alias less="less -R"
 alias tmux-attach="tmux attach &> /dev/null || tmux"
+alias vim=/usr/local/bin/vim
+alias gcc=gcc-7
 
 if [ "$(uname)" == "Darwin" ]; then
   # set for Mac
