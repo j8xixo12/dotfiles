@@ -18,4 +18,11 @@ export TERM='xterm-256color'
 if [ -x $(command -v terraform) ]; then
   complete -o nospace -C terraform tf
 fi
+alias vim=/usr/local/bin/vim
 
+if [ -d ~/.hack ]; then
+  . ~/.hack/etc/init
+fi
+
+# for intel mkl 
+export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH

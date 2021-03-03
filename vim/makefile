@@ -30,7 +30,7 @@ ifeq ($(OS), Linux)
 	sudo apt-get install -y $(clangd_ver) && \
 	sudo ln -sf /usr/bin/$(clangd_ver) /usr/bin/clangd
 else ifeq ($(OS), Darwin)
-	brew install llvm && \
+	brew install llvm@9 && \
 	echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.bashrc
 endif
 
@@ -40,6 +40,9 @@ ifeq ($(OS), Linux)
 else ifeq ($(OS), Darwin)
 	brew install node
 endif
+
+cocvim:
+	$(ROOT_DIR)/coc.sh
 
 .PHONY: vim
 /tmp/vim:
@@ -52,6 +55,7 @@ $(PREFIX)/bin/vim: /tmp/vim
 		git checkout $(VIM_VERSION) && \
 		./configure --with-features=huge \
             --enable-multibyte \
+			--enable-pythoninterp=yes \
             --enable-python3interp=yes \
             --with-python3-config-dir=$(Python3) \
             --enable-perlinterp=yes \
