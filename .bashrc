@@ -18,10 +18,9 @@ export TERM='xterm-256color'
 if [ -x $(command -v terraform) ]; then
   complete -o nospace -C terraform tf
 fi
-alias vim=/usr/local/bin/vim
 
-if [ -d ~/.hack ]; then
-  . ~/.hack/etc/init
+if [ -d ~/.devenv ]; then
+  source ~/.devenv/scripts/init
 fi
 
 # for intel mkl 

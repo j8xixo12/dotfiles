@@ -13,8 +13,8 @@ cyan="\e[036m"
 white="\e[037m"
 
 prompt_devenv() {
-  if [ -n "$YHFLAVOR" ]; then
-    echo -e " [${cyan}${bold}dev: $YHFLAVOR${reset}]"
+  if [ -n "$DEVENVFLAVOR" ]; then
+    echo -e " [${cyan}${bold}dev: $DEVENVFLAVOR${reset}]"
   fi  
 }
 
