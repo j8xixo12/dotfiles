@@ -18,5 +18,5 @@ autocmd FileType Makefile setlocal noexpandtab
 set backspace=indent,eol,start
 set noswapfile
 set autoread
-
+autocmd BufWritePre * :%s/\s\+$//e
 nmap <silent> <leader><ESC> :let @/=""<CR>
