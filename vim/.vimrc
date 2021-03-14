@@ -10,6 +10,7 @@ Plug 'bling/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'djoshea/vim-autoread'
+Plug 'ervandew/supertab'
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',

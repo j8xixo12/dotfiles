@@ -11,8 +11,6 @@ bashrc:
 	ln -sf $(ROOT_DIR)/.bashrc $(HOME)/.bashrc
 	ln -sf $(ROOT_DIR)/.bash_profile $(HOME)/.bash_profile
 	ln -sf $(ROOT_DIR)/.bash_prompt $(HOME)/.bash_prompt
-	sudo ln -sf $(ROOT_DIR)/bash_files/bashutils.sh /etc/ 
-	sudo chmod +x /etc/bashutils.sh
 
 gitconfig:
 	ln -sf $(ROOT_DIR)/.gitignore_global $(HOME)/.gitignore_global
