@@ -24,4 +24,4 @@ if [ -d ~/.devenv ]; then
 fi
 
 # for intel mkl
-export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib

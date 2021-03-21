@@ -8,7 +8,7 @@ VIM_VERSION ?= v8.2.1738
 
 all-vim: bear clangd vim Vim-Plug color vimrc
 
-Vim-Plug: 
+Vim-Plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 color:
@@ -21,7 +21,7 @@ bear:
 ifeq ($(OS), Linux)
 	sudo apt-get -y install bear
 else ifeq ($(OS), Darwin)
-	brew install bear
+	port install bear
 endif
 
 clangd_ver ?= clangd-10
@@ -30,19 +30,8 @@ ifeq ($(OS), Linux)
 	sudo apt-get install -y $(clangd_ver) && \
 	sudo ln -sf /usr/bin/$(clangd_ver) /usr/bin/clangd
 else ifeq ($(OS), Darwin)
-	brew install llvm@9 && \
-	echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.bashrc
+	port install llvm
 endif
-
-nodejs:
-ifeq ($(OS), Linux)
-	sudo apt-get install -y nodejs
-else ifeq ($(OS), Darwin)
-	brew install node
-endif
-
-cocvim:
-	$(ROOT_DIR)/coc.sh
 
 .PHONY: vim
 /tmp/vim:
@@ -69,9 +58,9 @@ $(PREFIX)/bin/vim: /tmp/vim
 		echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc
 .PHONY: vimrc
 vimrc:
-	ln -sf $(ROOT_DIR)/vim/.vimrc $(HOME)/.vimrc
-	ln -sf $(ROOT_DIR)/vim/vimsetting $(HOME)/.vim/vimsetting
+	ln -s $(ROOT_DIR)/vim/.vimrc $(HOME)/.vimrc
+	ln -s $(ROOT_DIR)/vim/vimsetting $(HOME)/.vim/vimsetting
 	vim +PlugInstall +qall
-	
+
 path:
 	@echo "$(ROOT_DIR)/vim/"
