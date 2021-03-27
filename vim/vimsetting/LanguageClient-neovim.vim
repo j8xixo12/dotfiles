@@ -1,8 +1,8 @@
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
   \ 'python': ['pyls'],
-  \ 'c': ['clangd'],
-  \ 'cpp': ['clangd']
+  \ 'c': ['ccls-clang-11'],
+  \ 'cpp': ['ccls-clang-11']
   \ }
 
 nmap <F5> <Plug>(lcn-menu)

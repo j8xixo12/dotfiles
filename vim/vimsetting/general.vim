@@ -1,7 +1,7 @@
 syntax on
 set t_Co=256
 set go+=a
-set number    
+set number
 set autoindent
 set mouse=a
 set nowrap
@@ -18,5 +18,6 @@ autocmd FileType Makefile setlocal noexpandtab
 set backspace=indent,eol,start
 set noswapfile
 set autoread
+set hidden
 autocmd BufWritePre * :%s/\s\+$//e
 nmap <silent> <leader><ESC> :let @/=""<CR>

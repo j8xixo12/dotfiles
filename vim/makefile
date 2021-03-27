@@ -30,7 +30,7 @@ ifeq ($(OS), Linux)
 	sudo apt-get install -y $(clangd_ver) && \
 	sudo ln -sf /usr/bin/$(clangd_ver) /usr/bin/clangd
 else ifeq ($(OS), Darwin)
-	port install llvm
+	sudo port install llvm
 endif
 
 .PHONY: vim

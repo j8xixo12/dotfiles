@@ -23,5 +23,11 @@ if [ -d ~/.devenv ]; then
   source ~/.devenv/scripts/init
 fi
 
+if [[ -e /opt/local/bin/port ]]; then
+  export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+fi
+
 # for intel mkl
-export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib
+if [ -e  /opt/intel ]; then
+  export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib
+fi
