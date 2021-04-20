@@ -6,8 +6,8 @@ set autoindent
 set mouse=a
 set nowrap
 set cursorline
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set hlsearch
 set history=100
 set smartcase

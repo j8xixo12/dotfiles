@@ -4,8 +4,20 @@ if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
 
-if [ -f /etc/bash_completion ]; then
-   . /etc/bash_completion
+# bash-completion
+
+if [ $(uname) == Darwin ]; then
+  if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+      . /opt/local/etc/bash_completion
+  fi
+
+  if [ -f /opt/local/share/git/contrib/completion/git-completion.bash ]; then
+    . /opt/local/share/git/contrib/completion/git-completion.bash
+  fi
+else
+  if [ -f /etc/bash_completion ]; then
+     . /etc/bash_completion
+  fi
 fi
 
 if [ -f /etc/bashutils.sh ]; then
