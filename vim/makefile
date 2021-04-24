@@ -8,7 +8,10 @@ VIM_VERSION ?= v8.2.1738
 
 all-vim: bear clangd vim Vim-Plug color vimrc
 
-Vim-Plug:
+aux:
+	pip3 install --user pynvim
+
+Vim-Plug: aux
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 color:
@@ -44,7 +47,6 @@ $(PREFIX)/bin/vim: /tmp/vim
 		git checkout $(VIM_VERSION) && \
 		./configure --with-features=huge \
             --enable-multibyte \
-			--enable-pythoninterp=yes \
             --enable-python3interp=yes \
             --with-python3-config-dir=$(Python3) \
             --enable-perlinterp=yes \

@@ -32,3 +32,4 @@ fi
 if [ -e  /opt/intel ]; then
   export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH
 fi
+alias vim=/usr/local/bin/vim
