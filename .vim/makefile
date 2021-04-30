@@ -60,9 +60,11 @@ $(PREFIX)/bin/vim: /tmp/vim
 		echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc
 .PHONY: vimrc
 vimrc:
-	ln -s $(ROOT_DIR)/vim/.vimrc $(HOME)/.vimrc
-	ln -s $(ROOT_DIR)/vim/vimsetting $(HOME)/.vim/vimsetting
+	ln -sf $(ROOT_DIR)/.vim/.vimrc $(HOME)/.vimrc
+	ln -sf $(ROOT_DIR)/.vim/vimsetting $(HOME)/.vim/vimsetting
+	ln -sf $(ROOT_DIR)/.vim/file_type $(HOME)/.vim/file_type
+
 	vim +PlugInstall +qall
 
 path:
-	@echo "$(ROOT_DIR)/vim/"
+	@echo "$(ROOT_DIR)/.vim/"

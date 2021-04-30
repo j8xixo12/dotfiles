@@ -1,5 +1,3 @@
-"Vim setting
-runtime! vimsetting/*.vim
 "-------------------------------------------------------------"
 "Plugin management
 call plug#begin('~/.vim/plugged')
@@ -19,5 +17,10 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 "-------------------------------------------------------------"
-
 call plug#end()
+
+"Vim setting
+filetype on
+runtime! vimsetting/*.vim
+runtime! file_type/*.vim
+

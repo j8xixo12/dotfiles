@@ -4,7 +4,7 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 all: bashrc vimrc gitconfig all-vim
 
-include vim/makefile
+include .vim/makefile
 
 bashrc:
 	ln -sf $(ROOT_DIR)/.aliases $(HOME)/.aliases
