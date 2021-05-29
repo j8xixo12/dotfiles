@@ -1,5 +1,5 @@
 [alias]
-    diff=difftool
+  diff=difftool
 [branch]
   autosetuprebase = always
 [core]
@@ -26,16 +26,19 @@
 [color "status"]
   added = green
   changed = red
-    untracked = cyan
+  untracked = cyan
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [difftool]
-      prompt = false
+  prompt = false
 [push]
-  default = simple
+  default = current
 [pull]
+  default = current
   rebase = true
 [user]
-	email = as2266317@gmail.com
-	name = j8xixo12
+  email = as2266317@gmail.com
+  name = j8xixo12
+[rebase]
+  autoStash = true
 
