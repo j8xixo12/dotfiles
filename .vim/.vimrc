@@ -16,6 +16,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'fcpg/vim-osc52'
 "-------------------------------------------------------------"
 call plug#end()
 
