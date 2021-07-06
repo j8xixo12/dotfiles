@@ -6,7 +6,7 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= v8.2.1738
 
-all-vim: bear clangd vim Vim-Plug color vimrc
+all-vim: vim aux Vim-Plug color vimrc
 
 aux:
 	pip3 install --user pynvim
@@ -56,8 +56,8 @@ $(PREFIX)/bin/vim: /tmp/vim
             --prefix=$(PREFIX) && \
 		make -j8 VIMRUNTIMEDIR=/usr/local/share/vim/vim82 && \
 		sudo make install && \
-		rm -rf $(src) && \
-		echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc
+		rm -rf $(src)
+		# echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc
 .PHONY: vimrc
 vimrc:
 	ln -sf $(ROOT_DIR)/.vim/.vimrc $(HOME)/.vimrc

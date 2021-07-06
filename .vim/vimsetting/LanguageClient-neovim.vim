@@ -1,8 +1,8 @@
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
   \ 'python': ['pyls'],
-  \ 'c': ['ccls-clang-11'],
-  \ 'cpp': ['ccls-clang-11']
+  \ 'c': ['ccls'],
+  \ 'cpp': ['ccls']
   \ }
 
 let g:deoplete#enable_at_startup = 1
