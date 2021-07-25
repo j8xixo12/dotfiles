@@ -15,7 +15,7 @@ white="\e[037m"
 prompt_devenv() {
   if [ -n "$DEVENVFLAVOR" ]; then
     echo -e " [${cyan}${bold}dev: $DEVENVFLAVOR${reset}]"
-  fi  
+  fi
 }
 
 prompt_git() {
@@ -58,8 +58,14 @@ prompt_git() {
 arrow() {
   echo -e "\uf307"
 }
+
+check_ssh() {
+  if [[ -n "${SSH_CLIENT}" ]]; then
+    echo -e " \ue762"
+  fi
+}
 # Set the terminal title to the current working directory.
 PS1=""
-PS1+="┌── ${bold}${green}\w${reset}\$(prompt_git)\$(prompt_devenv)\n"
+PS1+="┌── ${bold}${green}\w${reset}\$(prompt_git)\$(prompt_devenv)\$(check_ssh)\n"
 PS1+="└─\$(arrow) "
 export PS1
