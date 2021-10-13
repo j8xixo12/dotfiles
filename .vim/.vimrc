@@ -17,6 +17,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'fcpg/vim-osc52'
+Plug 'Yggdroot/indentLine'
 "-------------------------------------------------------------"
 call plug#end()
 
