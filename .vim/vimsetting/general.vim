@@ -15,5 +15,6 @@ set backspace=indent,eol,start
 set noswapfile
 set autoread
 set hidden
+set incsearch
 autocmd BufWritePre * :%s/\s\+$//e
 nmap <silent> <leader><ESC> :let @/=""<CR>
