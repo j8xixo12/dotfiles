@@ -6,7 +6,7 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= v8.2.1738
 
-all-vim: vim aux Vim-Plug color vimrc
+all-vim: vim aux ccls Vim-Plug color vimrc
 
 aux:
 	pip3 install --user pynvim
@@ -27,11 +27,16 @@ else ifeq ($(OS), Darwin)
 	port install bear
 endif
 
-clangd_ver ?= clangd-10
-clangd:
+ccls: llvm
 ifeq ($(OS), Linux)
-	sudo apt-get install -y $(clangd_ver) && \
-	sudo ln -sf /usr/bin/$(clangd_ver) /usr/bin/clangd
+	sudo pacman -S ccls
+else ifeq ($(OS), Darwin)
+	sudo port install ccls
+endif
+
+llvm:
+ifeq ($(OS), Linux)
+	sudo pacman -S llvm
 else ifeq ($(OS), Darwin)
 	sudo port install llvm
 endif
