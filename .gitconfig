@@ -42,3 +42,5 @@
 [rebase]
   autoStash = true
 
+[safe]
+	directory = /home/j8xixo12/git_repo/connectedhomeip

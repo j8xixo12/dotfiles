@@ -1,3 +1,4 @@
+let g:LanguageClient_rootMarkers = ['.root', '.git']
 let g:LanguageClient_diagnosticsEnable = 1
 let g:LanguageClient_serverCommands = {
   \ 'python': ['pyls'],
@@ -11,7 +12,9 @@ nmap <F5> <Plug>(lcn-menu)
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
+
 autocmd CompleteDone * silent! pclose!
+autocmd FileType qf wincmd L
 
 " bases
 nn <silent> xb :call LanguageClient#findLocations({'method':'$ccls/inheritance'})<cr>
@@ -40,3 +43,4 @@ nn <silent> xj :call LanguageClient#findLocations({'method':'$ccls/navigate','di
 nn <silent> xk :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'U'})<cr>
 nn <silent> xl :call LanguageClient#findLocations({'method':'$ccls/navigate','direction':'R'})<cr>
 
+nmap <silent> <F3> :call LanguageClient#textDocument_documentSymbol()<cr>

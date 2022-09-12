@@ -1,1 +1,2 @@
-vmap <silent> y y:Oscyank<cr>
+vnoremap y :OSCYank<cr>
+let g:oscyank_term='default'
