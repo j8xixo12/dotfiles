@@ -19,3 +19,4 @@ set incsearch
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 nmap <silent> <leader><ESC> :let @/=""<CR>
+

@@ -1,2 +1,2 @@
-vnoremap y :OSCYank<cr>
+vnoremap <C-c> :OSCYank<cr>
 let g:oscyank_term='default'

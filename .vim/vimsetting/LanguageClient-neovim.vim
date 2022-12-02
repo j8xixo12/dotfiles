@@ -9,9 +9,10 @@ let g:deoplete#enable_at_startup = 1
 
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
-nmap <silent>K <Plug>(lcn-hover)
+" nmap <silent>K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
-nmap <silent> <F2> <Plug>(lcn-rename)
+nmap <silent> gs <Plug>(lcn-references)
+" nmap <silent> <F2> <Plug>(lcn-rename)
 
 autocmd CompleteDone * silent! pclose!
 autocmd FileType qf wincmd L
