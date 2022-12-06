@@ -1,4 +1,4 @@
-let g:gutentags_project_root = ['.root', '.git']
+let g:gutentags_project_root = ['.root']
 
 let g:gutentags_ctags_tagfile = '.tags'
 
@@ -13,10 +13,6 @@ let g:gutentags_cache_dir = s:vim_tags
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
-
-" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-" let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
-" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 noremap <silent> cs :GscopeFind s <C-R><C-W><cr>
 noremap <silent> cg :GscopeFind g <C-R><C-W><cr>
