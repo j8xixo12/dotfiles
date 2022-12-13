@@ -5,7 +5,7 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="UTF-8"
 export LANG="en_US.UTF-8"
 # export TERM='xterm-256color'
-export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -34,5 +34,5 @@ if [ -e /opt/intel ]; then
 fi
 
 if [ -d ~/.cargo ]; then
-  export PATH="~/.cargo/bin:$PATH"
+  export PATH="$HOME/.cargo/bin:$PATH"
 fi
