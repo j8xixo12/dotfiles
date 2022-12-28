@@ -25,12 +25,12 @@ fi
 
 if [[ -e /opt/local/bin/port ]]; then
   export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-  # export DYLD_LIBRARY_PATH=/usr/lib:/opt/local/lib:$DYLD_LIBRARY_PATH
+  export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib:/opt/local/lib:$DYLD_FALLBACK_LIBRARY_PATH
 fi
 
 # for intel mkl
 if [ -e /opt/intel ]; then
-  export DYLD_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH
+  export DYLD_FALLBACK_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH
 fi
 
 if [ -d ~/.cargo ]; then
