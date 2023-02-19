@@ -1,16 +1,19 @@
-PREFIX ?= /usr/local
+PREFIX?=/usr/local
 
-OS := $(shell uname -s)
+OS:=$(shell uname -s)
 
-Python3 ?= $(shell python3-config --configdir)
+Python3?=$(shell python3-config --configdir)
 
-VIM_VERSION ?= v8.2.1738
+VIM_VERSION?=v8.2.1738
 
+.PHONY: all-vim
 all-vim: vim aux ccls Vim-Plug color vimrc
 
+.PHONY: aux
 aux:
 	pip3 install --user pynvim
 
+.PHONY: Vim-Plug
 Vim-Plug: aux
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
