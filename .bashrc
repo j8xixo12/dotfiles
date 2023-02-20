@@ -34,3 +34,9 @@ fi
 if [ -d $HOME/.cargo ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+# * $HOME/.local_profile can be used for other settings you don’t want to commit.
+if [ -f $HOME/.local_profile ]; then
+  source $HOME/.local_profile
+fi
+
