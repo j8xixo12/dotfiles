@@ -7,10 +7,8 @@ export LANG="en_US.UTF-8"
 # export TERM='xterm-256color'
 export PATH="$HOME/.local/bin:$PATH"
 # Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-. ~/.aliases
-. ~/.bash_prompt
+. $HOME/.aliases
+. $HOME/.bash_prompt
 
 # Set PATH priority to Homebrew installation folder
 
@@ -19,8 +17,8 @@ if [ -x $(command -v terraform) ]; then
   complete -o nospace -C terraform tf
 fi
 
-if [ -d ~/.devenv ]; then
-  source ~/.devenv/scripts/init
+if [ -d $HOME/.devenv ]; then
+  source $HOME/.devenv/scripts/init
 fi
 
 if [[ -e /opt/local/bin/port ]]; then
@@ -33,6 +31,6 @@ if [ -e /opt/intel ]; then
   export DYLD_FALLBACK_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH
 fi
 
-if [ -d ~/.cargo ]; then
+if [ -d $HOME/.cargo ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi

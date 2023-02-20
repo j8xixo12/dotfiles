@@ -1,7 +1,7 @@
 # ex: ts=2 sw=2 et filetype=bash
 
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
+if [ -f $HOME/.bashrc ]; then
+  source $HOME/.bashrc
 fi
 
 # bash-completion
@@ -22,6 +22,11 @@ fi
 
 if [ -f /etc/bashutils.sh ]; then
   source /etc/bashutils.sh
+fi
+
+# * $HOME/.local_profile can be used for other settings you don’t want to commit.
+if [ -f $HOME/.local_profile ]; then
+  source $HOME/.local_profile
 fi
 
 bind 'set show-all-if-ambiguous on'
