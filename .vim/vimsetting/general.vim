@@ -18,6 +18,8 @@ set hidden
 set incsearch
 set shiftwidth=4 softtabstop=4 tabstop=4 expandtab
 set ff=unix fenc=utf8 et sw=4 ts=4 sts=4
+set binary noeol
+set shiftwidth=4 softtabstop=4 tabstop=4 expandtab
 " autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 nmap <silent> <leader><ESC> :let @/=""<CR>

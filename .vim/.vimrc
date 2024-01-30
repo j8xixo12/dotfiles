@@ -21,7 +21,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
-Plug 'yegappan/taglist'
+" Plug 'yegappan/taglist'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
 "-------------------------------------------------------------"
