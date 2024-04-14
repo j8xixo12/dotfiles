@@ -6,12 +6,17 @@ Python3?=$(shell python3-config --configdir)
 
 VIM_VERSION?=v8.2.1738
 
+VIM_SRC=/tmp/vim
+
 .PHONY: all-vim
 all-vim: vim aux ccls Vim-Plug color vimrc
 
 .PHONY: aux
 aux:
 	pip3 install --user pynvim
+	sudo port install global
+	sudo port install ctags
+	sudo port install fzf
 
 .PHONY: Vim-Plug
 Vim-Plug: aux
@@ -27,7 +32,7 @@ bear:
 ifeq ($(OS), Linux)
 	sudo apt-get -y install bear
 else ifeq ($(OS), Darwin)
-	port install bear
+	sudo port install bear
 endif
 
 ccls: llvm
@@ -41,17 +46,20 @@ llvm:
 ifeq ($(OS), Linux)
 	sudo pacman -S llvm
 else ifeq ($(OS), Darwin)
-	sudo port install llvm
+	sudo port install llvm-12
 endif
 
 .PHONY: vim
 /tmp/vim:
-	$(eval src = /tmp/vim)
-	git clone https://github.com/vim/vim.git $(src)
+	if [[ ! -f $(VIM_SRC) ]]; then \
+	    git clone https://github.com/vim/vim.git $(VIM_SRC); \
+	else \
+		echo "Source code already downloaded."; \
+	fi
+
 vim: $(PREFIX)/bin/vim
-$(PREFIX)/bin/vim: /tmp/vim
-		$(eval src = /tmp/vim)
-		cd $(src) && \
+$(PREFIX)/bin/vim: $(VIM_SRC)
+		cd $(VIM_SRC) && \
 		git checkout $(VIM_VERSION) && \
 		./configure --with-features=huge \
             --enable-multibyte \
@@ -64,7 +72,7 @@ $(PREFIX)/bin/vim: /tmp/vim
             --prefix=$(PREFIX) && \
 		make -j8 VIMRUNTIMEDIR=/usr/local/share/vim/vim82 && \
 		sudo make install && \
-		rm -rf $(src)
+		rm -rf $(VIM_SRC)
 		# echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc
 .PHONY: vimrc
 vimrc:

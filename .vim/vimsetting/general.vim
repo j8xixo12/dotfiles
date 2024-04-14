@@ -16,7 +16,8 @@ set noswapfile
 set autoread
 set hidden
 set incsearch
-autocmd BufWritePre * :%s/\s\+$//e
+set shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+" autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 nmap <silent> <leader><ESC> :let @/=""<CR>
 
