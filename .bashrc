@@ -26,6 +26,14 @@ if [[ -e /opt/local/bin/port ]]; then
   export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib:/opt/local/lib:$DYLD_FALLBACK_LIBRARY_PATH
 fi
 
+if [[ -e /opt/homebrew ]]; then
+  export PATH=/opt/homebrew/bin:/opt/local/sbin:$PATH
+  export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib:/opt/homebrew/lib:$DYLD_FALLBACK_LIBRARY_PATH
+  # export LDFLAGS="-L/opt/homebrew/lib:$LDFLAGS"
+  export CPPFLAGS="-I/opt/homebrew/include"
+fi
+
+
 # for intel mkl
 if [ -e /opt/intel ]; then
   export DYLD_FALLBACK_LIBRARY_PATH=/opt/intel/oneapi/compiler/2021.1.1/mac/compiler/lib:$DYLD_LIBRARY_PATH

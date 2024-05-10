@@ -4,7 +4,7 @@ OS:=$(shell uname -s)
 
 Python3?=$(shell python3-config --configdir)
 
-VIM_VERSION?=v8.2.1738
+VIM_VERSION?=v9.1.0394
 
 VIM_SRC=/tmp/vim
 
@@ -13,10 +13,18 @@ all-vim: vim aux ccls Vim-Plug color vimrc
 
 .PHONY: aux
 aux:
-	pip3 install --user pynvim
-	sudo port install global
-	sudo port install ctags
-	sudo port install fzf
+	pip3 install pynvim --break-system-packages
+ifeq ($(OS), Linux)
+	sudo pacman -S global fzf rust cargo
+else ifeq ($(OS), Darwin)
+	brew install global
+	brew install fzf
+	brew install rust
+	brew install cargo
+	# for python on Apple silicon
+	brew install ninja
+	brew install libffi
+endif
 
 .PHONY: Vim-Plug
 Vim-Plug: aux
@@ -32,21 +40,21 @@ bear:
 ifeq ($(OS), Linux)
 	sudo apt-get -y install bear
 else ifeq ($(OS), Darwin)
-	sudo port install bear
+	brew install bear
 endif
 
 ccls: llvm
 ifeq ($(OS), Linux)
 	sudo pacman -S ccls
 else ifeq ($(OS), Darwin)
-	sudo port install ccls
+	brew install ccls
 endif
 
 llvm:
 ifeq ($(OS), Linux)
 	sudo pacman -S llvm
 else ifeq ($(OS), Darwin)
-	sudo port install llvm-12
+	brew install llvm
 endif
 
 .PHONY: vim
@@ -70,7 +78,7 @@ $(PREFIX)/bin/vim: $(VIM_SRC)
             --enable-gui=gtk2 \
             --enable-cscope \
             --prefix=$(PREFIX) && \
-		make -j8 VIMRUNTIMEDIR=/usr/local/share/vim/vim82 && \
+		make -j8 VIMRUNTIMEDIR=/usr/local/share/vim/vim91 && \
 		sudo make install && \
 		rm -rf $(VIM_SRC)
 		# echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc

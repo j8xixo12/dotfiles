@@ -3,7 +3,7 @@ SHELL:=bash
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: all
-all: bashrc vimrc gitconfig all-vim
+all: bashrc gitconfig all-vim tmux
 
 include .vim/makefile
 

@@ -1,5 +1,6 @@
 let g:LanguageClient_rootMarkers = ['.root', '.git']
 let g:LanguageClient_diagnosticsEnable = 1
+let g:LanguageClient_loggingFile = expand('~/.vim/LanguageClient.log')
 let g:LanguageClient_serverCommands = {
   \ 'python': ['pyls'],
   \ 'c': ['ccls'],

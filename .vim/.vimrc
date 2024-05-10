@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'yegappan/taglist'
+Plug 'inkarkat/vim-mark'
 "-------------------------------------------------------------"
 call plug#end()
 

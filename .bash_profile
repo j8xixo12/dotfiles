@@ -14,6 +14,10 @@ if [ $(uname) == Darwin ]; then
   if [ -f /opt/local/share/git/contrib/completion/git-completion.bash ]; then
     . /opt/local/share/git/contrib/completion/git-completion.bash
   fi
+
+  if [ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+      . /opt/homebrew/etc/bash_completion
+  fi
 else
   if [ -f /usr/share/bash-completion/bash_completion ]; then
      . /usr/share/bash-completion/bash_completion
