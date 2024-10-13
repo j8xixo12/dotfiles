@@ -23,3 +23,8 @@ bashrc:
 gitconfig:
 	ln -sf $(ROOT_DIR)/.gitignore_global $(HOME)/.gitignore_global
 	ln -sf $(ROOT_DIR)/.gitconfig $(HOME)/.gitconfig
+
+.PHONY: alacritty
+alacritty:
+	mkdir -p $(HOME)/.config/alacritty
+	cp $(ROOT_DIR)/.config/alacritty/alacritty.toml $(HOME)/.config/alacritty

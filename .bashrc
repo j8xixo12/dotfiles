@@ -28,7 +28,7 @@ fi
 
 if [[ -e /opt/homebrew ]]; then
   export PATH=/opt/homebrew/bin:/opt/local/sbin:$PATH
-  export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib:/opt/homebrew/lib:$DYLD_FALLBACK_LIBRARY_PATH
+  export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib:/opt/homebrew/lib
   # export LDFLAGS="-L/opt/homebrew/lib:$LDFLAGS"
   export CPPFLAGS="-I/opt/homebrew/include"
 fi

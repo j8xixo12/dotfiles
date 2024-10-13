@@ -1,0 +1,45 @@
+live_config_reload = true
+
+[font]
+size = 16
+
+  [font.normal]
+  family = "FantasqueSansM Nerd Font"
+  style = "Bold"
+
+  [font.bold]
+  family = "FantasqueSansM Nerd Font"
+  style = "Bold"
+
+[cursor.style]
+shape = "Underline"
+blinking = "Always"
+
+[colors.primary]
+background = "#000000"
+foreground = "#f8f8f2"
+
+[colors.cursor]
+text = "#f8f8f2"
+cursor = "#f8f8f2"
+
+[colors.normal]
+black = "#676965"
+red = "#ff6e6e"
+green = "#69ff94"
+yellow = "#ffffa5"
+blue = "#83afd8"
+magenta = "#ff92df"
+cyan = "#a4ffff"
+white = "#f1f1ef"
+
+[colors.bright]
+black = "#676965"
+red = "#ff6e6e"
+green = "#69ff94"
+yellow = "#ffffa5"
+blue = "#83afd8"
+magenta = "#ff92df"
+cyan = "#a4ffff"
+white = "#f1f1ef"
+

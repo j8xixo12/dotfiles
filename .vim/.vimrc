@@ -23,6 +23,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'yegappan/taglist'
 Plug 'inkarkat/vim-mark'
+Plug 'inkarkat/vim-ingo-library'
 "-------------------------------------------------------------"
 call plug#end()
 

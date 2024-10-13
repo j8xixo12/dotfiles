@@ -13,7 +13,8 @@ all-vim: vim aux ccls Vim-Plug color vimrc
 
 .PHONY: aux
 aux:
-	pip3 install pynvim --break-system-packages
+	pip3 install pynvim --break-system-packages \
+    pip3 install python-language-server[all] --break-system-packages
 ifeq ($(OS), Linux)
 	sudo pacman -S global fzf rust cargo
 else ifeq ($(OS), Darwin)
