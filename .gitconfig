@@ -39,7 +39,7 @@
 [user]
   email = as2266317@gmail.com
   name = Chun-Hsu Lai
-	signingkey = /home/j8xixo12/.ssh/id_rsa.pub
+	signingkey = ~/.ssh/id_rsa.pub
 [rebase]
   autoStash = true
 
