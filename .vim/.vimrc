@@ -2,7 +2,7 @@
 "Plugin management
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bling/vim-airline'
 Plug 'preservim/nerdcommenter'
@@ -21,6 +21,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
+" Plug 'inkarkat/vim-mark'
+Plug 'chentoast/marks.nvim'
 " Plug 'yegappan/taglist'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'

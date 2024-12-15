@@ -38,9 +38,12 @@
   rebase = true
 [user]
   email = as2266317@gmail.com
-  name = j8xixo12
+  name = Chun-Hsu Lai
+	signingkey = /home/j8xixo12/.ssh/id_rsa.pub
 [rebase]
   autoStash = true
 
 [safe]
 	directory = /home/j8xixo12/git_repo/connectedhomeip
+[gpg]
+	format = ssh

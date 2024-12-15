@@ -66,6 +66,6 @@ check_ssh() {
 }
 # Set the terminal title to the current working directory.
 PS1=""
-PS1+="┌── ${bold}${green}\w${reset}\$(prompt_git)\$(prompt_devenv)\$(check_ssh)\n"
+PS1+="┌── ${bold}${green}\w${reset} [${bold}${green}$(hostname)${reset}]\$(prompt_git)\$(prompt_devenv)\$(check_ssh)\n"
 PS1+="└─\$(arrow) "
 export PS1
