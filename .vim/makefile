@@ -4,7 +4,7 @@ OS:=$(shell uname -s)
 
 Python3?=$(shell python3-config --configdir)
 
-VIM_VERSION?=v9.1.0394
+VIM_VERSION?=v9.1.0955
 
 VIM_SRC=/tmp/vim
 
@@ -79,8 +79,8 @@ $(PREFIX)/bin/vim: $(VIM_SRC)
             --enable-gui=gtk2 \
             --enable-cscope \
             --prefix=$(PREFIX) && \
-		make -j8 VIMRUNTIMEDIR=/usr/local/share/vim/vim91 && \
-		sudo make install && \
+		make -j8 VIMRUNTIMEDIR=$(PREFIX)/share/vim/vim91 && \
+		make install && \
 		rm -rf $(VIM_SRC)
 		# echo 'alias vim='/usr/local/bin/vim'' >> ~/.bashrc
 .PHONY: vimrc
