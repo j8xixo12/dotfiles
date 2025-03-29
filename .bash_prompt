@@ -19,39 +19,56 @@ prompt_devenv() {
 }
 
 prompt_git() {
-  # Check if the current directory is in a Git repository.
-  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == 'true' ]; then
-    local t=''
-    local s=''
-    local c=''
-
-    # Ensure the index is up to date.
-    git update-index --really-refresh -q &>/dev/null
-
-    # Get the short symbolic ref.
-    # If HEAD isnât a symbolic ref, get the short SHA for the latest commit
-    # Otherwise, just give up.
-    if s=$(git symbolic-ref --quiet --short HEAD 2> /dev/null); then
-      t='\uf418'
-    elif s=$(git describe --tags --abbrev=0 2> /dev/null); then
-      t='\uf02c'
-    elif s=$(git rev-parse --short HEAD 2> /dev/null); then
-      t='\ue729'
-    else
-      s='(unknown)'
-      t='\uf29c'
+  # Check if we're in a git repo (exit early if not)
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+  
+  # Enable/disable caching (set to 0 to disable)
+  local use_cache=1
+  local cache_seconds=5
+  
+  # Get the git directory for cache file path
+  local git_dir=$(git rev-parse --git-dir 2>/dev/null)
+  local cache_file="/tmp/git_prompt_${USER}_$(echo "$git_dir" | md5sum | cut -d' ' -f1)"
+  
+  # Check if cache exists and is recent
+  if [ "$use_cache" -eq 1 ] && [ -f "$cache_file" ]; then
+    # Try both stat formats for better compatibility
+    local cache_time=$(stat -c %Y "$cache_file" 2>/dev/null || stat -f %m "$cache_file" 2>/dev/null)
+    local current_time=$(date +%s)
+    
+    if [ -n "$cache_time" ] && [ $((current_time - cache_time)) -lt "$cache_seconds" ]; then
+      cat "$cache_file"
+      return
     fi
-
-    # Check for unstaged/untracked changes.
-    if [ -n "$(git ls-files --others --exclude-standard)" ] || \
-       ! $(git diff --quiet --ignore-submodules && git diff --quiet --ignore-submodules --cached)
-    then
-      c='*'
-    fi
-
-    echo -e " [${cyan}${t} ${s}${yellow}${c}${reset}]"
+  fi
+  
+  local t=''
+  local s=''
+  local c=''
+  
+  # Get branch/tag/commit info (same as original)
+  if s=$(git symbolic-ref --quiet --short HEAD 2>/dev/null); then
+    t='\uf418'
+  elif s=$(git describe --tags --abbrev=0 2>/dev/null); then
+    t='\uf02c'
+  elif s=$(git rev-parse --short HEAD 2>/dev/null); then
+    t='\ue729'
   else
-    return
+    s='(unknown)'
+    t='\uf29c'
+  fi
+  
+  # Use faster method to check for changes
+  if [ -n "$(git status --porcelain --no-optional-locks -z 2>/dev/null | head -c1)" ]; then
+    c='*'
+  fi
+  
+  local output=" [${cyan}${t} ${s}${yellow}${c}${reset}]"
+  echo -e "$output"
+  
+  # Save to cache if enabled
+  if [ "$use_cache" -eq 1 ]; then
+    echo -e "$output" > "$cache_file"
   fi
 }
 
