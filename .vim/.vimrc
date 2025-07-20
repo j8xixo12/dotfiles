@@ -23,6 +23,7 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hotoo/pangu.vim'
 "-------------------------------------------------------------"
 call plug#end()
 

@@ -27,5 +27,5 @@ nmap <silent> <leader><ESC> :let @/=""<CR>
 
 "quick close quickfix window"
 nmap <silent> <leader> b : ccl <CR>
-let g:augment_workspace_folders = ['./']
 map <leader> w :set wrap!<CR>
+autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
